@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>extracting component</title>
+</head>
+
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        function formatDate(date) {
+            return date.toLocaleDateString();
+        }
+
+        function Comment(props) {
+            return (
+                <div className="Comment">
+                    <div className="UserInfo">
+                        <img
+                            className="Avatar"
+                            src={props.person.img}
+                        />
+                        <div className="UserInfo-name">
+                            {props.person.name}
+                        </div>
+                    </div>
+                    <div className="Comment-text">{props.text}</div>
+                    <div className="Comment-date">
+                        {formatDate(props.date)}
+                    </div>
+                </div>
+            );
+        }
+
+        const comment = {
+            date: new Date(),
+            message: 'I hope you will change the way you teach!',
+            person: {
+                img: '../images/download.jpg',
+            },
+        };
+        const element = <Comment
+            date={comment.date}
+            text={comment.message}
+            person={comment.person}
+        />
+        const place = document.getElementById('root');
+
+        
+        ReactDOM.render(element, place);
+    </script>
+    <script crossorigin src="https://unpkg.com/react@17/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</body>
+
+</html>

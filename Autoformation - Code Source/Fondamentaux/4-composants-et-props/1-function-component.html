@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rendering Component</title>
+</head>
+<body>
+  <div id="root"></div>
+  
+  <script type="text/babel">
+  
+    function Person(props) {
+      return (
+        <div>
+          <h1>{props.title}</h1>
+        <p>Hello, {props.name} {props.family} im {props.age} years old</p>
+      </div>);
+    }
+    
+    const element = <Person name = "Jaafar" family="Akhrif" age="23" title="C'est un fonction composant" />;
+    const place = document.getElementById('root');
+  
+  
+  
+   ReactDOM.render(element, 
+   place);
+  
+  </script>
+  <script crossorigin src="https://unpkg.com/react@17/umd/react.production.min.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  </body>
+</html>
